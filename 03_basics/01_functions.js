@@ -19,3 +19,27 @@ function login(username){
 
 console.log(login("yashank"));
 console.log(login());
+
+// *************************************************************
+// when we have not fixed number of input
+// Rest operator
+
+function calculatePrice(val1, val2, ...num1){
+    return num1
+}
+
+console.log(calculatePrice(200, 100, 400, 300, 500, 700));
+
+//****************************************************************
+// objects with functions
+
+const user = {
+    username: "yashank",
+    id: 123
+}
+
+function handleObject(anyobject){
+    console.log(`username is ${anyobject.username} and is is ${anyobject.id}`);
+}
+
+handleObject(user)
