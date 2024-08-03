@@ -44,5 +44,5 @@ const addnum = (num1, num2) => { // normal arrow function/explicit return arrow 
 
 //const addnum = (num1, num2) => num1+num2 // emplicit return arrow function
 //const addnum = (num1, num2) => (num1+num2) // also used as this , but if we uses curly brackets{} then we have to write return
-
+//const addnum = (num1, num2) => ({uname: "yashank"}) //returns object
 console.log(addnum(1,3));
