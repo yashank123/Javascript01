@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div>
+    </div>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children);                 // gives HTML collection
+    console.log(parent.children[1]);              // gives 2nd child
+    console.log(parent.children[1].innerHTML);
+
+
+    for(let i=0; i < parent.children.length; i++){
+        console.log(parent.children[i].innerHTML);
+    }
+
+    parent.children[1].style.color = "blue"
+
+    console.log(parent.firstElementChild);         // gives 1st child element
+    console.log(parent.lastElementChild);          // fives last child element
+
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne);
+    console.log(dayOne.parentElement);             // gives parent element
+    console.log(dayOne.nextElementSibling);        // gives 1st sibling element
+
+    console.log(parent.childNodes);     // gives complete structure of child(Node list) , it includes linebreaks, comment, text etc
+    
+    
+</script>
+</html>
