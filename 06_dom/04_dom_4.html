@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 04</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const newLi = document.createElement('li');
+        newLi.innerHTML = `${langName}`
+
+        document.querySelector('.language').appendChild(newLi)    // appendChild traverse the complete dom tree and then add it to end thats why it is not optimised
+    }
+
+    addLanguage("python")
+    addLanguage("c++")
+    addLanguage("typescript")
+
+    function addOptimizeLang(langName){
+        const newLi = document.createElement('li')
+        newLi.appendChild(document.createTextNode(`${langName}`))
+
+        document.querySelector('.language').appendChild(newLi)
+    }
+
+    addOptimizeLang("python")
+    addOptimizeLang("reactjs")
+
+    //************************************* edit any element  ******************
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "yoyo"
+
+    const newli = document.createElement('li')
+    newli.textContent = "yoyo"
+    secondLang.replaceWith(newli)
+
+    //******************************************************************
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //*************** remove element ************************************
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+</script>
+</html>
+
