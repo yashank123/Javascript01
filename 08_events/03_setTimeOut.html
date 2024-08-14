@@ -9,4 +9,28 @@
     <h1>Hello Yashank Lakhena!</h1>
     <button id="stop">Stop</button>
 </body>
+<script>
+    // setTimeout(handler/callback, time)
+
+    const sayYashank = function(){
+        console.log("Yashank");
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "wonderful journey"
+    }
+
+    setTimeout(sayYashank, 2000)
+
+    const changeME = setTimeout(changeText, 5000)
+
+    //clearTimeout()             // to stop setTimeout , it needs a reference of whose to stop
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeME)
+        console.log("stopped");
+        
+    })
+
+</script>
 </html>

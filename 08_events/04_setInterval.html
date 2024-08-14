@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events async js setTInterval</title>
+</head>
+<body>
+    <h1>Yashank ka jigri Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTInterval(handler/callback, time, input parameter)  // it will repeatedly executed after particular time interval
+
+    // setInterval(function(){
+    //     console.log("yashank");
+        
+    // },1000)
+
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+
+    const intervalId = setInterval(sayDate, 1000, "hi")
+
+     //clearInterval()             // to stop setInterval , it needs a reference of whose to stop
+
+   clearInterval(intervalId)
+
+   //**************************************************************
+
+//    const abc = setInterval(sayDate, 1000, "hello")
+// //    const print = function(){
+// //     abc
+// //    }
+
+//    document.querySelector('#start').addEventListener('click', function(){
+//     abc
+//    })
+
+//    document.querySelector('#stop').addEventListener('click', function(){
+//     clearInterval(print)
+//    })
+</script>
+</html>
