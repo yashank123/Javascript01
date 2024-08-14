@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events 1</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+
+<script>
+    //addEventListner('event', function(){}, true/false(default:- false))   // we get an event object
+
+    document.getElementById('owl').addEventListener('click', function(){
+        alert("owl clicked")
+    })
+
+    // attachEvent()   :- it was used earlier
+    // jquery :- "on" used
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log(e);
+    }, false /* (event propogation)*/ )
+
+    // ****************important things to learn in event
+    /*type, timestamp, defaultPrevented
+    target, toElement, srcElement, currentTarget,
+    clientX, clientY, screenX, screenY
+    altkey, ctrlkey, shiftkey, keyCode*/
+
+    //****************** event propogation
+    /*1. event bubling - default - false   , inside to outside 
+      2. event capturing - true  , outside to inside
+    */
+
+   document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");   // when any images inside ul is clicked it will run
+    }, false)
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("owl clicked");  // when specific owl image is clicked it will run, but then problem is which one would run 1st (eventlistner on images(ul), or eventlistner on owl )
+                                     // so when event propogation is false(event bubling ) then insilde will run 1st i.e. owl will run 1st
+                                     // and when event propogation is true(event capturing ) then outsilde will run 1st i.e. images(ul) will run 1st
+       
+         //e.stopPropagation()    // it stops the event propogation (it saperats itself from parent) in this "only" inside wil run i.e. owl will run , to stop event bubling
+    }, false)
+
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();  // to prevent the default behaviour of event(in this case google link will not open)
+        e.stopPropagation()  // to stop event bubling
+        console.log("google clicked");
+    }, false)
+
+    //*******************************************************
+    // small task:- when we click on any image it will remove
+    //e.target.parentNode :- parent of target
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+            //removeIt.parentNode.removeChild(removeIt)  // another way
+        }
+    })
+
+</script>
+</html>

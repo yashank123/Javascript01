@@ -1,0 +1,12 @@
+// javascript
+            -> synchronous
+            -> single threaded
+
+// execution context
+            -> execute one line of code at a time
+
+
+// Blocking code                vs                  Non-Blocking code
+  -> block the flow of program        -> does not block ececution
+  -> read file sync                   -> read file async
+   
