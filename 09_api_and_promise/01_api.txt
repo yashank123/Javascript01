@@ -1,0 +1,6 @@
+// API (Application Programming Interface)
+// it act as a communication bridge between two component of applicatins
+
+// json formatter (good website to work on api respone )
+
+// before fetch , xml http requst (AJAX request) was used for api calling

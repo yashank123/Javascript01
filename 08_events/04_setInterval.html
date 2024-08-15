@@ -30,17 +30,14 @@
 
    //**************************************************************
 
-//    const abc = setInterval(sayDate, 1000, "hello")
-// //    const print = function(){
-// //     abc
-// //    }
+   let print 
 
-//    document.querySelector('#start').addEventListener('click', function(){
-//     abc
-//    })
+   document.querySelector('#start').addEventListener('click', function(){
+    print = setInterval(sayDate, 1000, "hello")
+   })
 
-//    document.querySelector('#stop').addEventListener('click', function(){
-//     clearInterval(print)
-//    })
+   document.querySelector('#stop').addEventListener('click', function(){
+    clearInterval(print)
+   })
 </script>
 </html>
