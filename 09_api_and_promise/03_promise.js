@@ -56,3 +56,30 @@ const promiseFour = new Promise(function(resolve, reject){
         }
     }, 1000)
 })
+
+promiseFour.then((user) => {
+    console.log(user);
+    return user.name
+}).then((username) => {
+    console.log(username);
+}).catch(function(error){   // .catch is connected with reject (same as .then & resolve)
+    console.log(error);
+}).finally(() => console.log("promise is either resolved or rejected"))             // after a given amount of time it tells us what happens finally & always executed
+
+//******************************************************************************************************************** */
+const promiseFive = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        let error = true
+        if(!error){
+            resolve({username: "javascript", password: "123456"})
+        }
+        else{
+            reject('ERROR: js went wrong')
+        }
+    }, 1000)
+})
+
+async function consumePromiseFive(){
+    const response = await promiseFive
+    console.log(response);
+}
