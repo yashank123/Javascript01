@@ -79,7 +79,47 @@ const promiseFive = new Promise(function(resolve, reject){
     }, 1000)
 })
 
-async function consumePromiseFive(){
-    const response = await promiseFive
-    console.log(response);
+async function consumePromiseFive(){    // if we know that there will be no error then no use of try catch
+                                        // but if there is error/promise is rejected then use try catch
+    try{
+        const response = await promiseFive  // await on promiseFive
+        console.log(response);
+    }
+    catch(error){
+        console.log(error);               // this time promise is rejected so we have to use catch
+    }
 }
+
+consumePromiseFive()
+
+//************************************************************************************************************ */
+// async function getAllUsers(){
+//     try{
+//         const responce = await fetch('https://jsonplaceholder.typicode.com/users')  // fetch returns a promise
+//         //console.log(responce);
+    
+//         const data = await responce.json()   // to convert into json will take time so we applied await
+//         console.log(data);
+//     }
+//     catch(error){
+//         console.log("E:", error);
+//     }
+// }
+
+// getAllUsers()
+
+
+//*********        above function in .then formate        ******************/
+fetch('https://api.github.com/users/hiteshchoudhary')   // fetch returns a promise
+.then((responce) => {
+    return responce.json()
+})
+.then((data) => {
+    console.log(data);
+})
+.catch((error) => console.log(error))
+
+//******************************************************************* */
+// promise.all  to read
+
+// in fetch() the call is stored in special priority/fetch queue which will executed 1st
