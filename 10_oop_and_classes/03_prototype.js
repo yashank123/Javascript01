@@ -8,7 +8,7 @@
 let myName = "Yashank     "
 let mychannel = "chai     "
 
-console.log(myName.trueLength);
+//console.log(myName.trueLength);      // if we want to make our new property/prototype
 
 
 let myHeros = ["thor", "spiderman"]
@@ -37,3 +37,38 @@ Array.prototype.heyHitesh = function(){
 // heroPower.heyHitesh()         // not work as heyHitesh() prototype is for array not for objects (described for child so not work in parent but if described in parent will work for child)
 
 //********** inheritance ******************************* */
+
+const User = {
+    name: "chai",
+    email: "chai@google.com"
+}
+
+const Teacher = {
+    makeVideo: true
+}
+
+const TeachingSupport = {
+    isAvailable: false
+}
+
+const TASupport = {
+    makeAssignment: 'JS assignment',
+    fullTime: true,
+    __proto__: TeachingSupport           // adding TeachingSupport properties into TAsupport
+}
+
+Teacher.__proto__ = User
+
+// ****** modern syntax
+Object.setPrototypeOf(TeachingSupport, Teacher)
+
+let anotherUsername = "ChaiAurCode     "
+
+String.prototype.trueLength = function(){
+    console.log(`${this}`);
+    console.log(`True length is: ${this.trim().length}`);
+}
+
+anotherUsername.trueLength()
+"hitesh".trueLength()
+"iceTea".trueLength()
